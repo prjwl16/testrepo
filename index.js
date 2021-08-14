@@ -6,12 +6,10 @@ app.get("/",(req,res)=>{
     res.send("helloworld")
 })
 
-mongoose.connect(process.env.DATABASE,{
+mongoose.connect("mongodb+srv://user:pass@cluster0.kshzx.mongodb.net/etark?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
-}).then(() => {
-    console.log("DB CONNECTED")
 })
 
 app.listen(process.env.PORT || port ,()=>{
