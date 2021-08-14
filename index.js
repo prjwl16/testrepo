@@ -6,6 +6,14 @@ app.get("/",(req,res)=>{
     res.send("helloworld")
 })
 
-app.listen(process.env.port || port ,()=>{
+mongoose.connect(process.env.DATABASE,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log("DB CONNECTED")
+})
+
+app.listen(process.env.PORT || port ,()=>{
     console.log("Online")
 })
